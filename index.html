@@ -2,15 +2,16 @@
 <html lang="en" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Optimized viewport for extreme mobile rendering speed -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>Mohamed Kotkat // Performance Marketer & Growth Engineer (2026)</title>
-  <meta name="description" content="Mohamed Kotkat — Performance Marketer, Media Buyer & Quantitative Growth Specialist. Transforming ad spend into predictable revenue with mathematical rigor, Meta/Google Ads, and CRO." />
-  <meta name="keywords" content="Mohamed Kotkat, Performance Marketing, Media Buying, Growth Engineer, Meta Ads, Google Ads, Looker Studio, GA4, CRO, Egypt" />
+  <meta name="description" content="Engineering Scalable Growth Through Data Rigor & High-ROI Media Buying. Meta Ads, Google Ads, GA4 & CRO Specialist." />
+  <meta name="keywords" content="Mohamed Kotkat, Performance Marketing, Media Buying, Growth Specialist, Meta Ads, Google Ads, Looker Studio, GA4, CRO, Egypt" />
   
   <!-- Open Graph / Social Meta Tags -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Mohamed Kotkat // Growth Engineer & Performance Marketer" />
-  <meta property="og:description" content="Engineering Scalable Growth Through Mathematical Rigor & High-ROI Media Buying." />
+  <meta property="og:description" content="Engineering Scalable Growth Through Data Rigor & High-ROI Media Buying." />
   <meta property="og:image" content="./assets/coffelia.png" />
   
   <!-- Fonts & Icons -->
@@ -27,11 +28,25 @@
       theme: {
         extend: {
           colors: {
-            brand: {
-              dark: '#0a0f1d',
-              cyan: '#00D2FF',
-              indigo: '#6366F1',
-              card: 'rgba(255, 255, 255, 0.035)',
+            deepBg: '#0a0f1d',
+            cyanAccent: '#00D2FF',
+            indigoAccent: '#6366F1',
+            glassBg: 'rgba(255, 255, 255, 0.03)',
+            glassBorder: 'rgba(255, 255, 255, 0.08)'
+          },
+          animation: {
+            'float-slow': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 7s ease-in-out 2s infinite',
+            'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.4' },
+              '50%': { opacity: '0.8' },
             }
           }
         }
@@ -43,7 +58,7 @@
   <link rel="stylesheet" href="./css/styles.css" />
 </head>
 
-<body class="bg-[#0a0f1d] text-slate-100 font-sans selection:bg-cyan-500 selection:text-slate-950">
+<body class="bg-[#0a0f1d] text-slate-100 font-sans selection:bg-cyan-500 selection:text-slate-950 relative overflow-x-hidden">
 
   <!-- Ambient Glow Background Orbs -->
   <div class="ambient-glow-1 top-0 left-1/4 -translate-x-1/2"></div>
@@ -54,7 +69,7 @@
   <div id="toast-container"></div>
 
   <!-- ==========================================================================
-     1. NAVBAR (Sticky & Glassmorphic)
+     1. NAVBAR (Sticky, Glassmorphic & Bilingual Language Switcher)
      ========================================================================== -->
   <header id="main-navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-5">
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -66,36 +81,48 @@
             MK
           </div>
         </div>
-        <span class="tracking-tight text-base font-extrabold">
+        <span class="tracking-tight text-base font-extrabold" data-i18n="nav_brand">
           MOHAMED KOTKAT <span class="text-cyan-400 font-mono text-xs font-semibold">// 2026</span>
         </span>
       </a>
 
       <!-- Desktop Navigation Links -->
       <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
-        <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
-        <a href="#methodology" class="hover:text-cyan-400 transition-colors">Methodology</a>
-        <a href="#services" class="hover:text-cyan-400 transition-colors">Services</a>
-        <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
-        <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills Matrix</a>
+        <a href="#about" class="hover:text-cyan-400 transition-colors" data-i18n="nav_about">About</a>
+        <a href="#methodology" class="hover:text-cyan-400 transition-colors" data-i18n="nav_methodology">Methodology</a>
+        <a href="#services" class="hover:text-cyan-400 transition-colors" data-i18n="nav_services">Services</a>
+        <a href="#projects" class="hover:text-cyan-400 transition-colors" data-i18n="nav_projects">Projects</a>
+        <a href="#skills" class="hover:text-cyan-400 transition-colors" data-i18n="nav_skills">Skills Matrix</a>
         <a href="https://linktr.ee/mohamedkotkat" target="_blank" class="text-cyan-400 hover:text-white transition-colors font-mono flex items-center gap-1">
           <i data-lucide="link" class="w-3.5 h-3.5"></i>
           <span>Linktree</span>
         </a>
       </nav>
 
-      <!-- CTA Audit Request Button -->
+      <!-- Desktop Actions: Language Toggle & Audit Button -->
       <div class="hidden md:flex items-center gap-4">
+        <!-- Language Switcher Button -->
+        <button class="lang-toggle-btn px-3.5 py-1.5 rounded-lg border border-cyan-500/30 bg-cyan-950/40 text-cyan-400 font-mono text-xs font-bold hover:bg-cyan-500/20 transition-all flex items-center gap-1.5">
+          <i data-lucide="globe" class="w-3.5 h-3.5 text-cyan-400"></i>
+          <span class="lang-btn-text">العربية</span>
+        </button>
+
+        <!-- CTA Audit Request Button -->
         <a href="#contact" class="btn-cyan text-xs tracking-wider uppercase">
           <i data-lucide="sparkles" class="w-4 h-4"></i>
-          <span>Audit Request</span>
+          <span data-i18n="nav_audit_btn">Audit Request</span>
         </a>
       </div>
 
-      <!-- Mobile Hamburger Button -->
-      <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white p-2" aria-label="Toggle menu">
-        <i data-lucide="menu" class="w-6 h-6"></i>
-      </button>
+      <!-- Mobile Hamburger & Language Button -->
+      <div class="flex items-center gap-3 md:hidden">
+        <button class="lang-toggle-btn px-2.5 py-1 rounded-md border border-cyan-500/30 bg-cyan-950/40 text-cyan-400 font-mono text-xs font-bold">
+          <span class="lang-btn-text">العربية</span>
+        </button>
+        <button id="mobile-menu-btn" class="text-slate-300 hover:text-white p-2" aria-label="Toggle menu">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
 
     </div>
   </header>
@@ -110,21 +137,26 @@
     </div>
 
     <div class="flex flex-col gap-5 font-semibold text-lg text-slate-200 py-6">
-      <a href="#about" class="mobile-link hover:text-cyan-400">About</a>
-      <a href="#methodology" class="mobile-link hover:text-cyan-400">Methodology</a>
-      <a href="#services" class="mobile-link hover:text-cyan-400">Services</a>
-      <a href="#projects" class="mobile-link hover:text-cyan-400">Projects & Deliverables</a>
-      <a href="#skills" class="mobile-link hover:text-cyan-400">Skills Matrix</a>
+      <a href="#about" class="mobile-link hover:text-cyan-400" data-i18n="nav_about">About</a>
+      <a href="#methodology" class="mobile-link hover:text-cyan-400" data-i18n="nav_methodology">Methodology</a>
+      <a href="#services" class="mobile-link hover:text-cyan-400" data-i18n="nav_services">Services</a>
+      <a href="#projects" class="mobile-link hover:text-cyan-400" data-i18n="nav_projects">Projects & Deliverables</a>
+      <a href="#skills" class="mobile-link hover:text-cyan-400" data-i18n="nav_skills">Skills Matrix</a>
       <a href="https://linktr.ee/mohamedkotkat" target="_blank" class="mobile-link text-cyan-400 hover:text-white flex items-center gap-2 font-mono">
         <i data-lucide="external-link" class="w-4 h-4"></i>
         <span>Linktree Hub</span>
       </a>
-      <a href="#contact" class="mobile-link hover:text-cyan-400">Contact</a>
+      <a href="#contact" class="mobile-link hover:text-cyan-400" data-i18n="nav_contact">Contact</a>
     </div>
 
-    <div class="pt-6 border-t border-white/10">
+    <div class="pt-6 border-t border-white/10 flex flex-col gap-3">
+      <button class="lang-toggle-btn w-full py-3 rounded-xl border border-cyan-500/30 bg-cyan-950/40 text-cyan-400 font-mono text-sm font-bold flex items-center justify-center gap-2">
+        <i data-lucide="globe" class="w-4 h-4"></i>
+        <span class="lang-btn-text">العربية</span>
+      </button>
+
       <a href="#contact" class="mobile-link btn-cyan w-full justify-center">
-        <span>Book Growth Audit</span>
+        <span data-i18n="nav_audit_btn">Book Growth Audit</span>
         <i data-lucide="arrow-right" class="w-4 h-4"></i>
       </a>
     </div>
@@ -132,11 +164,11 @@
 
 
   <!-- ==========================================================================
-     2. HERO SECTION (Anti-Gravity Interactive Canvas + Professional Portrait)
+     2. HERO SECTION (Mobile Optimized Canvas + Professional Portrait)
      ========================================================================== -->
   <section id="about" class="relative min-h-screen flex items-center justify-center pt-32 pb-20 overflow-hidden">
     
-    <!-- Canvas Particle Background -->
+    <!-- Lightweight Zero-Gravity Canvas Background -->
     <canvas id="hero-particles-canvas" class="absolute inset-0 z-0 pointer-events-auto"></canvas>
 
     <div class="max-w-7xl mx-auto px-6 relative z-10">
@@ -150,18 +182,20 @@
           <div class="inline-flex items-center gap-2 mb-6 animate-float">
             <span class="badge-pill">
               <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-              Performance Marketing & Quantitative Growth Engineering
+              <span data-i18n="hero_badge">Performance Marketing & Quantitative Growth Engineering</span>
             </span>
           </div>
 
           <!-- Main Headline -->
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-[1.15]">
-            Engineering Scalable Growth Through <br class="hidden sm:inline" />
-            <span class="text-gradient-cyan">Data Rigor</span> & <span class="text-gradient-indigo">High-ROI Media Buying.</span>
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-[1.15]">
+            <span data-i18n="hero_title_1">Engineering Scalable Growth Through </span>
+            <span class="text-gradient-cyan" data-i18n="hero_title_cyan">Data Rigor</span>
+            <span data-i18n="hero_title_2"> & </span>
+            <span class="text-gradient-indigo" data-i18n="hero_title_indigo">High-ROI Media Buying.</span>
           </h1>
 
           <!-- Subheading -->
-          <p class="max-w-2xl text-base sm:text-lg text-slate-300 font-normal mb-8 leading-relaxed mx-auto lg:mx-0">
+          <p class="max-w-2xl text-base sm:text-lg text-slate-300 font-normal mb-8 leading-relaxed mx-auto lg:mx-0" data-i18n="hero_sub">
             Transforming ad spend into predictable revenue. Combining algorithmic campaign architectures (Meta & Google Ads) with conversion mechanics, AI automation, and unit economics modeling.
           </p>
 
@@ -169,31 +203,31 @@
           <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-3.5 mb-10">
             <div class="badge-trust flex items-center gap-2">
               <i data-lucide="award" class="w-4 h-4 text-cyan-400"></i>
-              <span>Meta Ads Specialist</span>
+              <span data-i18n="badge_meta">Meta Ads Specialist</span>
             </div>
             <div class="badge-trust flex items-center gap-2">
               <i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-400"></i>
-              <span>Google Ads Certified</span>
+              <span data-i18n="badge_google">Google Ads Certified</span>
             </div>
             <div class="badge-trust flex items-center gap-2">
               <i data-lucide="bar-chart-3" class="w-4 h-4 text-cyan-400"></i>
-              <span>GA4 & Looker Studio</span>
+              <span data-i18n="badge_ga4">GA4 & Looker Studio</span>
             </div>
             <div class="badge-trust flex items-center gap-2">
               <i data-lucide="graduation-cap" class="w-4 h-4 text-indigo-400"></i>
-              <span>DEPI Scholar (MCIT)</span>
+              <span data-i18n="badge_depi">DEPI Scholar (MCIT)</span>
             </div>
           </div>
 
           <!-- Action Buttons -->
           <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4">
             <a href="#projects" class="btn-cyan text-sm py-4 px-8">
-              <span>Explore Projects</span>
+              <span data-i18n="btn_explore_projects">Explore Projects</span>
               <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
             <a href="https://linktr.ee/mohamedkotkat" target="_blank" class="btn-glass text-sm py-4 px-8">
               <i data-lucide="link-2" class="w-4 h-4 text-cyan-400"></i>
-              <span>Visit Linktree</span>
+              <span data-i18n="btn_visit_linktree">Visit Linktree</span>
             </a>
           </div>
 
@@ -209,17 +243,17 @@
 
             <!-- Glass Card Frame -->
             <div class="avatar-glass-card">
-              <img src="./assets/mohamed_kotkat.jpg" alt="Mohamed Kotkat — Performance Marketer & Growth Engineer" class="avatar-img shadow-2xl" />
+              <img src="./assets/mohamed_kotkat.jpg" alt="Mohamed Kotkat — Performance Marketer & Growth Engineer" class="avatar-img shadow-2xl" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80'" />
               
               <!-- Bottom Inner Name Overlay -->
               <div class="mt-3 p-3 rounded-xl bg-slate-950/80 backdrop-blur-md border border-white/10 flex items-center justify-between font-mono text-xs">
                 <div>
-                  <span class="text-white font-bold block text-sm">MOHAMED KOTKAT</span>
-                  <span class="text-slate-400 text-[11px]">Media Buyer & Growth Specialist</span>
+                  <span class="text-white font-bold block text-sm" data-i18n="avatar_name">MOHAMED KOTKAT</span>
+                  <span class="text-slate-400 text-[11px]" data-i18n="avatar_role">Media Buyer & Growth Specialist</span>
                 </div>
                 <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[11px]">
                   <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                  <span>Available</span>
+                  <span data-i18n="avatar_available">Available</span>
                 </div>
               </div>
             </div>
@@ -230,8 +264,8 @@
                 ROAS
               </div>
               <div class="font-mono">
-                <span class="text-[10px] text-slate-400 block uppercase">Target Multiplier</span>
-                <span class="text-xs font-bold text-cyan-400">3.8x - 6.2x Avg</span>
+                <span class="text-[10px] text-slate-400 block uppercase" data-i18n="chip_roas_label">Target Multiplier</span>
+                <span class="text-xs font-bold text-cyan-400" data-i18n="chip_roas_val">3.8x - 6.2x Avg</span>
               </div>
             </div>
 
@@ -241,8 +275,8 @@
                 DATA
               </div>
               <div class="font-mono">
-                <span class="text-[10px] text-slate-400 block uppercase">Growth Model</span>
-                <span class="text-xs font-bold text-indigo-400">Quantitative Engineering</span>
+                <span class="text-[10px] text-slate-400 block uppercase" data-i18n="chip_data_label">Growth Model</span>
+                <span class="text-xs font-bold text-indigo-400" data-i18n="chip_data_val">Quantitative Engineering</span>
               </div>
             </div>
 
@@ -255,7 +289,7 @@
       <!-- Zero-Gravity Indicator Tag -->
       <div class="mt-16 text-center inline-flex items-center justify-center w-full gap-3 text-xs font-mono text-slate-400 opacity-70">
         <i data-lucide="mouse-pointer-2" class="w-4 h-4 text-cyan-400 animate-bounce"></i>
-        <span>Move cursor across background to interact with zero-gravity growth particles</span>
+        <span data-i18n="particle_hint">Move cursor across background to interact with zero-gravity growth particles</span>
       </div>
 
     </div>
@@ -270,11 +304,11 @@
       
       <!-- Section Header -->
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="badge-pill mb-3">Scientific Approach</span>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+        <span class="badge-pill mb-3" data-i18n="methodology_badge">Scientific Approach</span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4" data-i18n="methodology_title">
           Quantitative Growth & Data-Driven Engineering
         </h2>
-        <p class="text-slate-400 text-base sm:text-lg">
+        <p class="text-slate-400 text-base sm:text-lg" data-i18n="methodology_sub">
           Growth isn't random guesswork. It is a controlled system governed by unit economics, conversion mechanics, statistical testing, and creative velocity.
         </p>
       </div>
@@ -290,14 +324,10 @@
               <i data-lucide="binary" class="w-7 h-7"></i>
             </div>
             <span class="font-mono text-xs font-bold text-cyan-400 uppercase tracking-widest block mb-2">01 // QUANTITATIVE</span>
-            <h3 class="text-2xl font-bold text-white mb-4">Quantitative Rigor</h3>
-            <p class="text-slate-300 text-sm leading-relaxed mb-6">
-              Applying statistical modeling, variance measurement, confidence intervals, and strict A/B significance tests (`p < 0.05`) to eliminate wasted ad spend.
+            <h3 class="text-2xl font-bold text-white mb-4" data-i18n="card_1_title">Quantitative Rigor</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6" data-i18n="card_1_desc">
+              Applying statistical modeling, variance measurement, confidence intervals, and strict A/B significance tests (p < 0.05) to eliminate wasted ad spend.
             </p>
-            <div class="pt-4 border-t border-white/5 font-mono text-xs text-slate-400 flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
-              <span>Zero-Wastage Variance Control</span>
-            </div>
           </div>
         </div>
 
@@ -309,14 +339,10 @@
               <i data-lucide="layers" class="w-7 h-7"></i>
             </div>
             <span class="font-mono text-xs font-bold text-indigo-400 uppercase tracking-widest block mb-2">02 // ARCHITECTURE</span>
-            <h3 class="text-2xl font-bold text-white mb-4">Full-Funnel Architecture</h3>
-            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            <h3 class="text-2xl font-bold text-white mb-4" data-i18n="card_2_title">Full-Funnel Architecture</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6" data-i18n="card_2_desc">
               Seamlessly aligning high-converting ad hooks with landing page intent, reducing UX friction points, and optimizing conversion rates from impression to LTV.
             </p>
-            <div class="pt-4 border-t border-white/5 font-mono text-xs text-slate-400 flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
-              <span>Conversion Friction Reduction</span>
-            </div>
           </div>
         </div>
 
@@ -328,14 +354,10 @@
               <i data-lucide="cpu" class="w-7 h-7"></i>
             </div>
             <span class="font-mono text-xs font-bold text-cyan-400 uppercase tracking-widest block mb-2">03 // AUTOMATION</span>
-            <h3 class="text-2xl font-bold text-white mb-4">AI-Augmented Workflows</h3>
-            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            <h3 class="text-2xl font-bold text-white mb-4" data-i18n="card_3_title">AI-Augmented Workflows</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6" data-i18n="card_3_desc">
               Leveraging advanced LLMs, rapid creative prompt engineering, automated webhook routing, and CRM integrations for aggressive creative velocity.
             </p>
-            <div class="pt-4 border-t border-white/5 font-mono text-xs text-slate-400 flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
-              <span>10x Creative Testing Velocity</span>
-            </div>
           </div>
         </div>
 
@@ -346,7 +368,7 @@
 
 
   <!-- ==========================================================================
-     4. CORE SERVICES & CAPABILITIES (Grid of 4 Cards)
+     4. CORE SERVICES & CAPABILITIES
      ========================================================================== -->
   <section id="services" class="py-24 relative z-10 border-t border-white/5 bg-slate-950/40">
     <div class="max-w-7xl mx-auto px-6">
@@ -354,12 +376,12 @@
       <!-- Section Header -->
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
         <div>
-          <span class="badge-pill mb-3">Core Capabilities</span>
-          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          <span class="badge-pill mb-3" data-i18n="services_badge">Core Capabilities</span>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight" data-i18n="services_title">
             Specialized Growth Solutions
           </h2>
         </div>
-        <p class="text-slate-400 max-w-md text-sm sm:text-base">
+        <p class="text-slate-400 max-w-md text-sm sm:text-base" data-i18n="services_sub">
           End-to-end acquisition engineering, conversion optimization, and marketing intelligence for scaling businesses.
         </p>
       </div>
@@ -376,15 +398,10 @@
               </div>
               <span class="font-mono text-xs text-slate-400">CAPABILITY // 01</span>
             </div>
-            <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">Paid Media Acquisition</h3>
-            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors" data-i18n="service_1_title">Paid Media Acquisition</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6" data-i18n="service_1_desc">
               Architecting full-funnel paid media campaigns across Meta Ads (FB & IG) and Google Ads (Search, Performance Max, Display). Strategic budget scaling, ad copy variations, and bid management.
             </p>
-          </div>
-          <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5 font-mono text-xs">
-            <span class="px-3 py-1 rounded-md bg-white/5 text-slate-300">Meta Ads Manager</span>
-            <span class="px-3 py-1 rounded-md bg-white/5 text-slate-300">Google Search & PMax</span>
-            <span class="px-3 py-1 rounded-md bg-white/5 text-slate-300">Cost-Cap Scaling</span>
           </div>
         </div>
 
@@ -397,15 +414,10 @@
               </div>
               <span class="font-mono text-xs text-slate-400">CAPABILITY // 02</span>
             </div>
-            <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-indigo-400 transition-colors">Conversion Rate Optimization (CRO)</h3>
-            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-indigo-400 transition-colors" data-i18n="service_2_title">Conversion Rate Optimization (CRO)</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6" data-i18n="service_2_desc">
               High-converting landing page layouts, rigorous A/B split testing protocols, heatmaps user session analysis, micro-copy iteration, and checkout friction elimination.
             </p>
-          </div>
-          <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5 font-mono text-xs">
-            <span class="px-3 py-1 rounded-md bg-white/5 text-slate-300">Landing Page UX</span>
-            <span class="px-3 py-1 rounded-md bg-white/5 text-slate-300">A/B Significance</span>
-            <span class="px-3 py-1 rounded-md bg-white/5 text-slate-300">Friction Audits</span>
           </div>
         </div>
 
@@ -418,15 +430,10 @@
               </div>
               <span class="font-mono text-xs text-slate-400">CAPABILITY // 03</span>
             </div>
-            <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">Analytics & Business Intelligence</h3>
-            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors" data-i18n="service_3_title">Analytics & Business Intelligence</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6" data-i18n="service_3_desc">
               Custom Looker Studio executive reporting dashboards, GA4 custom event tracking, conversion API setup, and unit economics modeling (ROAS, CPA, CPC, CPM, CAC, LTV).
             </p>
-          </div>
-          <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5 font-mono text-xs">
-            <span class="px-3 py-1 rounded-md bg-white/5 text-slate-300">Looker Studio</span>
-            <span class="px-3 py-1 rounded-md bg-white/5 text-slate-300">GA4 Event Schema</span>
-            <span class="px-3 py-1 rounded-md bg-white/5 text-slate-300">LTV Modeling</span>
           </div>
         </div>
 
@@ -439,15 +446,10 @@
               </div>
               <span class="font-mono text-xs text-slate-400">CAPABILITY // 04</span>
             </div>
-            <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-indigo-400 transition-colors">Marketing Tech & Automation</h3>
-            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-indigo-400 transition-colors" data-i18n="service_4_title">Marketing Tech & Automation</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6" data-i18n="service_4_desc">
               HubSpot CRM lead nurturing pipelines, automated webhook triggers, AI content creation workflows, and real-time lead notification routing to sales dashboards.
             </p>
-          </div>
-          <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5 font-mono text-xs">
-            <span class="px-3 py-1 rounded-md bg-white/5 text-slate-300">HubSpot CRM</span>
-            <span class="px-3 py-1 rounded-md bg-white/5 text-slate-300">Zapier / Webhooks</span>
-            <span class="px-3 py-1 rounded-md bg-white/5 text-slate-300">AI Pipelines</span>
           </div>
         </div>
 
@@ -465,11 +467,11 @@
       
       <!-- Section Header -->
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="badge-pill mb-3">Funnel Blueprint</span>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+        <span class="badge-pill mb-3" data-i18n="funnel_badge">Funnel Blueprint</span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4" data-i18n="funnel_title">
           Interactive 5-Step Acquisition Funnel
         </h2>
-        <p class="text-slate-400 text-base sm:text-lg">
+        <p class="text-slate-400 text-base sm:text-lg" data-i18n="funnel_sub">
           Click through each acquisition stage to inspect strategic mechanics, metric targets, and quantitative formulas.
         </p>
       </div>
@@ -529,7 +531,7 @@
 
 
   <!-- ==========================================================================
-     6. EXECUTED PROJECTS & DELIVERABLES (Real-World & Applied Simulations)
+     6. EXECUTED PROJECTS & DELIVERABLES
      ========================================================================== -->
   <section id="projects" class="py-24 relative z-10 border-t border-white/5 bg-slate-950/40">
     <div class="max-w-7xl mx-auto px-6">
@@ -537,12 +539,12 @@
       <!-- Section Header -->
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
         <div>
-          <span class="badge-pill mb-3">Proven Track Record</span>
-          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          <span class="badge-pill mb-3" data-i18n="projects_badge">Proven Track Record</span>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight" data-i18n="projects_title">
             Executed Projects & Deliverables
           </h2>
         </div>
-        <p class="text-slate-400 max-w-md text-sm sm:text-base">
+        <p class="text-slate-400 max-w-md text-sm sm:text-base" data-i18n="projects_sub">
           Strategic brand launch plans, multi-channel lead generation funnels, content calendars, and professional personal branding deliverables.
         </p>
       </div>
@@ -555,14 +557,14 @@
           <div>
             <div class="relative h-56 rounded-xl overflow-hidden mb-6 border border-white/10">
               <img src="./assets/coffelia.png" alt="Coffelia DTC Coffee Launch Plan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-full border border-cyan-500/30 text-xs font-mono text-cyan-400 font-bold">
+              <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-full border border-cyan-500/30 text-xs font-mono text-cyan-400 font-bold" data-i18n="project_1_tag">
                 DTC BRAND LAUNCH
               </div>
             </div>
 
             <span class="font-mono text-xs text-cyan-400 font-semibold uppercase tracking-wider block mb-2">PROJECT // 01</span>
-            <h3 class="text-2xl font-bold text-white mb-3">Coffelia — Specialty Coffee Launch Plan</h3>
-            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            <h3 class="text-2xl font-bold text-white mb-3" data-i18n="project_1_title">Coffelia — Specialty Coffee Launch Plan</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6" data-i18n="project_1_desc">
               Complete consumer journey mapping, 2-week teaser-to-launch content calendar, and high-conversion subscription funnels targeting lifestyle coffee enthusiasts.
             </p>
 
@@ -596,7 +598,7 @@
           <div>
             <div class="relative h-56 rounded-xl overflow-hidden mb-6 border border-white/10 bg-slate-900 p-6 flex flex-col justify-between">
               <div class="flex justify-between items-start">
-                <span class="font-mono text-xs text-indigo-400 font-bold px-3 py-1 rounded-full bg-indigo-950 border border-indigo-500/30">
+                <span class="font-mono text-xs text-indigo-400 font-bold px-3 py-1 rounded-full bg-indigo-950 border border-indigo-500/30" data-i18n="project_2_tag">
                   MULTI-SECTOR STRATEGY
                 </span>
                 <i data-lucide="briefcase" class="w-6 h-6 text-indigo-400"></i>
@@ -613,8 +615,8 @@
             </div>
 
             <span class="font-mono text-xs text-indigo-400 font-semibold uppercase tracking-wider block mb-2">PROJECT // 02</span>
-            <h3 class="text-2xl font-bold text-white mb-3">Multi-Brand Campaign Strategies</h3>
-            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            <h3 class="text-2xl font-bold text-white mb-3" data-i18n="project_2_title">Multi-Brand Campaign Strategies</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6" data-i18n="project_2_desc">
               Developing tailored content roadmaps, buyer personas, and ad creative positioning for brands in F&B, cosmetics, skincare, and pharmaceutical sectors.
             </p>
 
@@ -636,7 +638,10 @@
 
           <div class="flex items-center justify-between pt-4 border-t border-white/5">
             <span class="text-xs font-mono text-indigo-400 font-semibold">F&B, Beauty & Pharma</span>
-            <span class="text-xs font-mono text-slate-400">4 Major Brands</span>
+            <button onclick="openCaseModal('modal-multibrand')" class="btn-glass text-xs py-2.5 px-4">
+              <span>View Strategy</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </button>
           </div>
         </div>
 
@@ -645,14 +650,14 @@
           <div>
             <div class="relative h-56 rounded-xl overflow-hidden mb-6 border border-white/10">
               <img src="./assets/b2b_leadgen.png" alt="B2B Lead Gen Architecture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-full border border-indigo-500/30 text-xs font-mono text-indigo-400 font-bold">
+              <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-full border border-indigo-500/30 text-xs font-mono text-indigo-400 font-bold" data-i18n="project_3_tag">
                 LEAD GEN SIMULATION
               </div>
             </div>
 
             <span class="font-mono text-xs text-indigo-400 font-semibold uppercase tracking-wider block mb-2">PROJECT // 03</span>
-            <h3 class="text-2xl font-bold text-white mb-3">Multi-Channel Lead Gen Architecture</h3>
-            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            <h3 class="text-2xl font-bold text-white mb-3" data-i18n="project_3_title">Multi-Channel Lead Gen Architecture</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6" data-i18n="project_3_desc">
               Designing full-funnel acquisition paths starting from Meta/Search hooks, landing page CRO, progressive qualification forms, and instant CRM webhook lead routing.
             </p>
 
@@ -686,7 +691,7 @@
           <div>
             <div class="relative h-56 rounded-xl overflow-hidden mb-6 border border-white/10 bg-slate-900 p-6 flex flex-col justify-between">
               <div class="flex justify-between items-start">
-                <span class="font-mono text-xs text-cyan-400 font-bold px-3 py-1 rounded-full bg-cyan-950 border border-cyan-500/30">
+                <span class="font-mono text-xs text-cyan-400 font-bold px-3 py-1 rounded-full bg-cyan-950 border border-cyan-500/30" data-i18n="project_4_tag">
                   PERSONAL BRANDING & CAROUSELS
                 </span>
                 <i data-lucide="user-check" class="w-6 h-6 text-cyan-400"></i>
@@ -698,8 +703,8 @@
             </div>
 
             <span class="font-mono text-xs text-cyan-400 font-semibold uppercase tracking-wider block mb-2">PROJECT // 04</span>
-            <h3 class="text-2xl font-bold text-white mb-3">Profile Optimization & Content Production</h3>
-            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            <h3 class="text-2xl font-bold text-white mb-3" data-i18n="project_4_title">Profile Optimization & Content Production</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6" data-i18n="project_4_desc">
               Meta Business Suite page setup, educational LinkedIn carousel post creation, and direct-response short-form video scripting (Reels/TikTok) applying pricing psychology.
             </p>
 
@@ -721,7 +726,10 @@
 
           <div class="flex items-center justify-between pt-4 border-t border-white/5">
             <span class="text-xs font-mono text-cyan-400 font-semibold">LinkedIn & Meta Branding</span>
-            <span class="text-xs font-mono text-slate-400">Content Creation</span>
+            <button onclick="openCaseModal('modal-profile')" class="btn-glass text-xs py-2.5 px-4">
+              <span>View Deliverables</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </button>
           </div>
         </div>
 
@@ -731,22 +739,19 @@
   </section>
 
 
-
-
-
   <!-- ==========================================================================
-     8. COMPREHENSIVE SKILLS MATRIX & SPECIALIZATION
+     7. COMPREHENSIVE SKILLS MATRIX & SPECIALIZATION
      ========================================================================== -->
   <section id="skills" class="py-24 relative z-10 border-t border-white/5 bg-slate-950/40">
     <div class="max-w-7xl mx-auto px-6">
       
       <!-- Section Header -->
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="badge-pill mb-3">Professional Arsenal</span>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+        <span class="badge-pill mb-3" data-i18n="skills_badge">Professional Arsenal</span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4" data-i18n="skills_title">
           Professional Skills & Technical Matrix
         </h2>
-        <p class="text-slate-400 text-base sm:text-lg">
+        <p class="text-slate-400 text-base sm:text-lg" data-i18n="skills_sub">
           A structured matrix of core capabilities spanning paid acquisition, growth analytics, AI workflows, content strategy, and business negotiation.
         </p>
       </div>
@@ -759,11 +764,11 @@
               <i data-lucide="graduation-cap" class="w-5 h-5"></i>
             </div>
             <div>
-              <h3 class="text-sm font-bold text-white">DEPI / MCIT Scholar</h3>
-              <span class="text-[11px] font-mono text-cyan-400">Digital Marketing & Freelancing</span>
+              <h3 class="text-sm font-bold text-white" data-i18n="depi_title">DEPI / MCIT Scholar</h3>
+              <span class="text-[11px] font-mono text-cyan-400" data-i18n="depi_sub">Digital Marketing & Freelancing</span>
             </div>
           </div>
-          <p class="text-xs text-slate-300 leading-relaxed">
+          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="depi_desc">
             Ministry of Communications and Information Technology initiative covering media buying, campaign structuring, and client acquisition pipelines.
           </p>
         </div>
@@ -774,11 +779,11 @@
               <i data-lucide="cloud" class="w-5 h-5"></i>
             </div>
             <div>
-              <h3 class="text-sm font-bold text-white">Oracle MyLearn Certified</h3>
-              <span class="text-[11px] font-mono text-indigo-400">Cloud Infrastructure & Analytics</span>
+              <h3 class="text-sm font-bold text-white" data-i18n="oracle_title">Oracle MyLearn Certified</h3>
+              <span class="text-[11px] font-mono text-indigo-400" data-i18n="oracle_sub">Cloud Infrastructure & Analytics</span>
             </div>
           </div>
-          <p class="text-xs text-slate-300 leading-relaxed">
+          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="oracle_desc">
             Technical modules in data visualization, structured query logic, and automated cloud reporting modules.
           </p>
         </div>
@@ -789,11 +794,11 @@
               <i data-lucide="calculator" class="w-5 h-5"></i>
             </div>
             <div>
-              <h3 class="text-sm font-bold text-white">Quantitative Growth Focus</h3>
-              <span class="text-[11px] font-mono text-emerald-400">Data & Unit Economics</span>
+              <h3 class="text-sm font-bold text-white" data-i18n="quant_title">Quantitative Growth Focus</h3>
+              <span class="text-[11px] font-mono text-emerald-400" data-i18n="quant_sub">Data & Unit Economics</span>
             </div>
           </div>
-          <p class="text-xs text-slate-300 leading-relaxed">
+          <p class="text-xs text-slate-300 leading-relaxed" data-i18n="quant_desc">
             Data-driven problem solving, financial campaign modeling, variance control, and mathematical ROAS optimization.
           </p>
         </div>
@@ -816,24 +821,11 @@
             </div>
             
             <ul class="space-y-2.5 font-mono text-xs text-slate-300">
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-cyan-400 font-bold">Meta Ads Manager:</span> FB & IG Campaign Structuring
-              </li>
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-cyan-400 font-bold">Google Ads:</span> Search, Display & Performance Max
-              </li>
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-cyan-400 font-bold">Performance Marketing:</span> Ad Spend to Revenue ROI
-              </li>
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-cyan-400 font-bold">Digital Media Buying:</span> Budget Allocation & Bid Caps
-              </li>
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-cyan-400 font-bold">Lead Generation:</span> High-Intent Conversion Funnels
-              </li>
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-cyan-400 font-bold">Paid Social & Search:</span> Multi-Channel Retargeting
-              </li>
+              <li class="p-2 rounded bg-white/[0.02] border border-white/5"><span class="text-cyan-400 font-bold">Meta Ads Manager:</span> FB & IG Campaign Structuring</li>
+              <li class="p-2 rounded bg-white/[0.02] border border-white/5"><span class="text-cyan-400 font-bold">Google Ads:</span> Search, Display & Performance Max</li>
+              <li class="p-2 rounded bg-white/[0.02] border border-white/5"><span class="text-cyan-400 font-bold">Performance Marketing:</span> Ad Spend to Revenue ROI</li>
+              <li class="p-2 rounded bg-white/[0.02] border border-white/5"><span class="text-cyan-400 font-bold">Digital Media Buying:</span> Budget Allocation & Bid Caps</li>
+              <li class="p-2 rounded bg-white/[0.02] border border-white/5"><span class="text-cyan-400 font-bold">Lead Generation:</span> High-Intent Conversion Funnels</li>
             </ul>
           </div>
         </div>
@@ -852,24 +844,11 @@
             </div>
 
             <ul class="space-y-2.5 font-mono text-xs text-slate-300">
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-indigo-400 font-bold">Google Analytics 4 (GA4):</span> Event Tracking & Behavior
-              </li>
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-indigo-400 font-bold">Looker Studio:</span> Interactive BI Dashboards & Reports
-              </li>
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-indigo-400 font-bold">CRO & A/B Testing:</span> Statistical Significance
-              </li>
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-indigo-400 font-bold">Unit Economics KPIs:</span> ROAS, CPA, CTR, CPC, CPM
-              </li>
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-indigo-400 font-bold">Financial Growth:</span> LTV & CAC Ratio Optimization
-              </li>
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-indigo-400 font-bold">Market Intelligence:</span> Competitor & Trend Analysis
-              </li>
+              <li class="p-2 rounded bg-white/[0.02] border border-white/5"><span class="text-indigo-400 font-bold">Google Analytics 4 (GA4):</span> Event Tracking & Behavior</li>
+              <li class="p-2 rounded bg-white/[0.02] border border-white/5"><span class="text-indigo-400 font-bold">Looker Studio:</span> Interactive BI Dashboards & Reports</li>
+              <li class="p-2 rounded bg-white/[0.02] border border-white/5"><span class="text-indigo-400 font-bold">CRO & A/B Testing:</span> Statistical Significance</li>
+              <li class="p-2 rounded bg-white/[0.02] border border-white/5"><span class="text-indigo-400 font-bold">Unit Economics KPIs:</span> ROAS, CPA, CTR, CPC, CPM</li>
+              <li class="p-2 rounded bg-white/[0.02] border border-white/5"><span class="text-indigo-400 font-bold">Financial Growth:</span> LTV & CAC Ratio Optimization</li>
             </ul>
           </div>
         </div>
@@ -888,24 +867,11 @@
             </div>
 
             <ul class="space-y-2.5 font-mono text-xs text-slate-300">
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-cyan-400 font-bold">Prompt Engineering:</span> LLM Optimization for Copy
-              </li>
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-cyan-400 font-bold">Generative AI:</span> Copywriting, Angles & Creative Assets
-              </li>
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-cyan-400 font-bold">Marketing Automation:</span> Webhooks, Zapier & Routing
-              </li>
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-cyan-400 font-bold">HubSpot CRM:</span> Lead Scoring, Pipeline & Retention
-              </li>
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-cyan-400 font-bold">Data Management:</span> MS Excel & Google Sheets Pivots
-              </li>
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-cyan-400 font-bold">Production Stack:</span> CapCut, Microsoft Designer, Canva
-              </li>
+              <li class="p-2 rounded bg-white/[0.02] border border-white/5"><span class="text-cyan-400 font-bold">Prompt Engineering:</span> LLM Optimization for Copy</li>
+              <li class="p-2 rounded bg-white/[0.02] border border-white/5"><span class="text-cyan-400 font-bold">Generative AI:</span> Copywriting, Angles & Creative Assets</li>
+              <li class="p-2 rounded bg-white/[0.02] border border-white/5"><span class="text-cyan-400 font-bold">Marketing Automation:</span> Webhooks, Zapier & Routing</li>
+              <li class="p-2 rounded bg-white/[0.02] border border-white/5"><span class="text-cyan-400 font-bold">HubSpot CRM:</span> Lead Scoring, Pipeline & Retention</li>
+              <li class="p-2 rounded bg-white/[0.02] border border-white/5"><span class="text-cyan-400 font-bold">Data Management:</span> MS Excel & Google Sheets Pivots</li>
             </ul>
           </div>
         </div>
@@ -924,24 +890,10 @@
             </div>
 
             <ul class="space-y-2.5 font-mono text-xs text-slate-300">
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-indigo-400 font-bold">Social Media Marketing:</span> Audience Growth Strategy
-              </li>
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-indigo-400 font-bold">SEO Optimization:</span> Organic Search Intent Matching
-              </li>
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-indigo-400 font-bold">Sales Funnel Architecture:</span> Frictionless Conversion
-              </li>
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-indigo-400 font-bold">Digital Content Creation:</span> Video Scripts & Assets
-              </li>
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-indigo-400 font-bold">Short-Form Video Editing:</span> CapCut Reels & TikTok
-              </li>
-              <li class="p-2 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-indigo-400 font-bold">LinkedIn Carousels:</span> Educational Personal Branding
-              </li>
+              <li class="p-2 rounded bg-white/[0.02] border border-white/5"><span class="text-indigo-400 font-bold">Social Media Marketing:</span> Audience Growth Strategy</li>
+              <li class="p-2 rounded bg-white/[0.02] border border-white/5"><span class="text-indigo-400 font-bold">SEO Optimization:</span> Organic Search Intent Matching</li>
+              <li class="p-2 rounded bg-white/[0.02] border border-white/5"><span class="text-indigo-400 font-bold">Sales Funnel Architecture:</span> Frictionless Conversion</li>
+              <li class="p-2 rounded bg-white/[0.02] border border-white/5"><span class="text-indigo-400 font-bold">Short-Form Video Editing:</span> CapCut Reels & TikTok</li>
             </ul>
           </div>
         </div>
@@ -961,21 +913,13 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3 font-mono text-xs text-slate-300">
               <div class="p-3 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-emerald-400 font-bold block mb-1">Analytical Thinking & Data Interpretation:</span>
+                <span class="text-emerald-400 font-bold block mb-1">Analytical Thinking & Data Logic:</span>
                 Extracting actionable campaign logic from complex performance metrics datasets.
               </div>
               <div class="p-3 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-emerald-400 font-bold block mb-1">CRM & Strategic Client Negotiation:</span>
+                <span class="text-emerald-400 font-bold block mb-1">CRM & Strategic Negotiation:</span>
                 Communicating ROI, managing client pipelines, and closing alignment meetings.
               </div>
-              <div class="p-3 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-emerald-400 font-bold block mb-1">Data-Driven Problem Solving:</span>
-                Identifying friction bottlenecks and applying structured corrective actions.
-              </div>
-              <div class="p-3 rounded bg-white/[0.02] border border-white/5">
-                <span class="text-emerald-400 font-bold block mb-1">Bilingual Business Proficiency:</span>
-                Arabic (Native) & English (Full Professional Business Proficiency).
-              </div>
             </div>
           </div>
         </div>
@@ -987,128 +931,7 @@
 
 
   <!-- ==========================================================================
-     8.5 APPLIED SKILLS IN ACTION (Social Media Projects & Creative Mechanics)
-     ========================================================================== -->
-  <section id="applied-skills" class="py-24 relative z-10 border-t border-white/5 bg-slate-950/20">
-    <div class="max-w-7xl mx-auto px-6">
-      
-      <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="badge-pill mb-3">Hands-On Application</span>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
-          Applied Skills & Creative Mechanics
-        </h2>
-        <p class="text-slate-400 text-base sm:text-lg">
-          Practical skillsets deployed across real-world social media campaigns, video production pipelines, and automated lead routing.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        
-        <!-- Skill Action 1 -->
-        <div class="glass-panel p-8">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center">
-              <i data-lucide="pen-tool" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <span class="font-mono text-[10px] text-cyan-400 font-bold uppercase">CREATIVE STRATEGY</span>
-              <h3 class="text-lg font-bold text-white">Copywriting & Angle Development</h3>
-            </div>
-          </div>
-          <ul class="space-y-2.5 text-xs text-slate-300 font-mono">
-            <li class="p-2.5 rounded bg-white/[0.02] border border-white/5">
-              <span class="text-cyan-400 font-bold">Thumb-Stopping Hooks:</span> Crafting high-converting opening hooks in video scripts and copy lines to capture attention and lower interaction cost.
-            </li>
-            <li class="p-2.5 rounded bg-white/[0.02] border border-white/5">
-              <span class="text-cyan-400 font-bold">Direct-Response Copywriting:</span> Writing persuasive ad text that drives immediate action (Clear CTAs for lead forms, consultations, or orders).
-            </li>
-            <li class="p-2.5 rounded bg-white/[0.02] border border-white/5">
-              <span class="text-cyan-400 font-bold">Storytelling & Education:</span> Explaining complex pricing psychology and value angles through educational carousels and video scripts.
-            </li>
-          </ul>
-        </div>
-
-        <!-- Skill Action 2 -->
-        <div class="glass-panel p-8">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center">
-              <i data-lucide="video" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <span class="font-mono text-[10px] text-indigo-400 font-bold uppercase">AI & PRODUCTION</span>
-              <h3 class="text-lg font-bold text-white">AI Tools & Video Editing</h3>
-            </div>
-          </div>
-          <ul class="space-y-2.5 text-xs text-slate-300 font-mono">
-            <li class="p-2.5 rounded bg-white/[0.02] border border-white/5">
-              <span class="text-indigo-400 font-bold">Prompt Engineering:</span> Guiding Generative AI models to brainstorm creative angles, ad copy variations, and accelerate production.
-            </li>
-            <li class="p-2.5 rounded bg-white/[0.02] border border-white/5">
-              <span class="text-indigo-400 font-bold">CapCut Video Production:</span> Editing short-form vertical videos (Reels/TikTok) optimized for high retention and visual pacing.
-            </li>
-            <li class="p-2.5 rounded bg-white/[0.02] border border-white/5">
-              <span class="text-indigo-400 font-bold">Visual Design Stack:</span> Utilizing Microsoft Designer & Canva to design high-engagement social assets.
-            </li>
-          </ul>
-        </div>
-
-        <!-- Skill Action 3 -->
-        <div class="glass-panel p-8">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center">
-              <i data-lucide="activity" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <span class="font-mono text-[10px] text-cyan-400 font-bold uppercase">ALGORITHMIC INSIGHTS</span>
-              <h3 class="text-lg font-bold text-white">Analytics & A/B Testing</h3>
-            </div>
-          </div>
-          <ul class="space-y-2.5 text-xs text-slate-300 font-mono">
-            <li class="p-2.5 rounded bg-white/[0.02] border border-white/5">
-              <span class="text-cyan-400 font-bold">Algorithm Mechanics:</span> Leveraging Meta, Instagram, and TikTok feed recommendation windows to maximize organic reach and engagement.
-            </li>
-            <li class="p-2.5 rounded bg-white/[0.02] border border-white/5">
-              <span class="text-cyan-400 font-bold">Meta Insights & GA4:</span> Monitoring Reach, Impressions, Engagement Rate, and Outbound CTR to refine audience targeting.
-            </li>
-            <li class="p-2.5 rounded bg-white/[0.02] border border-white/5">
-              <span class="text-cyan-400 font-bold">A/B Variable Testing:</span> Systematically split-testing headlines, thumbnails, and copy angles to isolate winning assets.
-            </li>
-          </ul>
-        </div>
-
-        <!-- Skill Action 4 -->
-        <div class="glass-panel p-8">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center">
-              <i data-lucide="network" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <span class="font-mono text-[10px] text-indigo-400 font-bold uppercase">AUTOMATION & PIPELINES</span>
-              <h3 class="text-lg font-bold text-white">Funnel Mapping & Webhook Lead Routing</h3>
-            </div>
-          </div>
-          <ul class="space-y-2.5 text-xs text-slate-300 font-mono">
-            <li class="p-2.5 rounded bg-white/[0.02] border border-white/5">
-              <span class="text-indigo-400 font-bold">Funnel Mapping:</span> Connecting ad creative hooks directly to frictionless destination landing pages.
-            </li>
-            <li class="p-2.5 rounded bg-white/[0.02] border border-white/5">
-              <span class="text-indigo-400 font-bold">Automated Lead Routing:</span> Capturing lead form entries via Webhooks and instantly piping data into automated Excel/Google Sheets dashboards.
-            </li>
-            <li class="p-2.5 rounded bg-white/[0.02] border border-white/5">
-              <span class="text-indigo-400 font-bold">CRM Nurturing:</span> Triggering immediate notification alerts to sales teams to minimize lead response latency.
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ==========================================================================
-     9. CONTACT SECTION & FOOTER
+     8. CONTACT SECTION & FOOTER
      ========================================================================== -->
   <section id="contact" class="py-24 relative z-10 border-t border-white/5">
     <div class="max-w-7xl mx-auto px-6">
@@ -1117,11 +940,11 @@
         
         <!-- Contact Intro & Info -->
         <div class="lg:col-span-5">
-          <span class="badge-pill mb-3">Initiate Collaboration</span>
-          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+          <span class="badge-pill mb-3" data-i18n="contact_badge">Initiate Collaboration</span>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight" data-i18n="contact_title">
             Ready to Scale Your Acquisition Funnels with Data-Backed Precision?
           </h2>
-          <p class="text-slate-300 text-base mb-8 leading-relaxed">
+          <p class="text-slate-300 text-base mb-8 leading-relaxed" data-i18n="contact_sub">
             Whether you are launching a DTC product or scaling a multi-channel B2B lead generation pipeline, let's analyze your unit economics and build your high-ROI media architecture.
           </p>
 
@@ -1131,8 +954,8 @@
                 <i data-lucide="map-pin" class="w-5 h-5"></i>
               </div>
               <div>
-                <span class="text-xs text-slate-400 block">LOCATION</span>
-                <span class="text-white">Tanta, Gharbia, Egypt</span>
+                <span class="text-xs text-slate-400 block" data-i18n="contact_location_label">LOCATION</span>
+                <span class="text-white" data-i18n="contact_location_val">Tanta, Gharbia, Egypt</span>
               </div>
             </div>
 
@@ -1141,7 +964,7 @@
                 <i data-lucide="phone" class="w-5 h-5"></i>
               </div>
               <div>
-                <span class="text-xs text-slate-400 block">PHONE / WHATSAPP</span>
+                <span class="text-xs text-slate-400 block" data-i18n="contact_phone_label">PHONE / WHATSAPP</span>
                 <a href="https://wa.me/201012620632" target="_blank" class="text-cyan-400 hover:underline">+20 1012620632</a>
               </div>
             </div>
@@ -1151,7 +974,7 @@
                 <i data-lucide="mail" class="w-5 h-5"></i>
               </div>
               <div>
-                <span class="text-xs text-slate-400 block">EMAIL ADDRESS</span>
+                <span class="text-xs text-slate-400 block" data-i18n="contact_email_label">EMAIL ADDRESS</span>
                 <a href="mailto:mohamedkotkat3@gmail.com" class="text-cyan-400 hover:underline">mohamedkotkat3@gmail.com</a>
               </div>
             </div>
@@ -1161,7 +984,7 @@
                 <i data-lucide="linkedin" class="w-5 h-5"></i>
               </div>
               <div>
-                <span class="text-xs text-slate-400 block">LINKEDIN PROFILE</span>
+                <span class="text-xs text-slate-400 block" data-i18n="contact_linkedin_label">LINKEDIN PROFILE</span>
                 <a href="https://linkedin.com/in/mohamed-kotkat1" target="_blank" class="text-indigo-400 hover:underline">linkedin.com/in/mohamed-kotkat1</a>
               </div>
             </div>
@@ -1171,7 +994,7 @@
                 <i data-lucide="link-2" class="w-5 h-5"></i>
               </div>
               <div>
-                <span class="text-xs text-slate-400 block">LINKTREE HUB</span>
+                <span class="text-xs text-slate-400 block" data-i18n="contact_linktree_label">LINKTREE HUB</span>
                 <a href="https://linktr.ee/mohamedkotkat" target="_blank" class="text-cyan-400 hover:underline">linktr.ee/mohamedkotkat</a>
               </div>
             </div>
@@ -1186,28 +1009,28 @@
         <!-- Contact Form -->
         <div class="lg:col-span-7">
           <div class="glass-panel p-8 sm:p-10 border-cyan-glow relative">
-            <h3 class="text-2xl font-bold text-white mb-2">Request a Growth Audit</h3>
-            <p class="text-slate-400 text-xs font-mono mb-6">Fill out your details below to trigger an instant audit review via WhatsApp/Email.</p>
+            <h3 class="text-2xl font-bold text-white mb-2" data-i18n="form_title">Request a Growth Audit</h3>
+            <p class="text-slate-400 text-xs font-mono mb-6" data-i18n="form_sub">Fill out your details below to trigger an instant audit review via WhatsApp/Email.</p>
 
             <form id="audit-contact-form" class="space-y-5">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label class="block text-xs font-mono text-slate-300 mb-2">FULL NAME *</label>
+                  <label class="block text-xs font-mono text-slate-300 mb-2" data-i18n="form_name_label">FULL NAME *</label>
                   <input type="text" id="form-name" required placeholder="e.g. Sarah Miller" class="w-full bg-slate-950/60 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400 transition-colors" />
                 </div>
                 <div>
-                  <label class="block text-xs font-mono text-slate-300 mb-2">EMAIL ADDRESS *</label>
+                  <label class="block text-xs font-mono text-slate-300 mb-2" data-i18n="form_email_label">EMAIL ADDRESS *</label>
                   <input type="email" id="form-email" required placeholder="sarah@company.com" class="w-full bg-slate-950/60 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400 transition-colors" />
                 </div>
               </div>
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label class="block text-xs font-mono text-slate-300 mb-2">PHONE / WHATSAPP</label>
+                  <label class="block text-xs font-mono text-slate-300 mb-2" data-i18n="form_phone_label">PHONE / WHATSAPP</label>
                   <input type="tel" id="form-phone" placeholder="+1 (555) 000-0000" class="w-full bg-slate-950/60 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400 transition-colors" />
                 </div>
                 <div>
-                  <label class="block text-xs font-mono text-slate-300 mb-2">MONTHLY AD BUDGET</label>
+                  <label class="block text-xs font-mono text-slate-300 mb-2" data-i18n="form_spend_label">MONTHLY AD BUDGET</label>
                   <select id="form-spend" class="w-full bg-slate-950/60 border border-white/10 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-cyan-400 transition-colors">
                     <option value="$1k - $5k">$1,000 - $5,000 / month</option>
                     <option value="$5k - $15k">$5,000 - $15,000 / month</option>
@@ -1218,13 +1041,13 @@
               </div>
 
               <div>
-                <label class="block text-xs font-mono text-slate-300 mb-2">PROJECT OBJECTIVES & CURRENT FRICTION *</label>
+                <label class="block text-xs font-mono text-slate-300 mb-2" data-i18n="form_message_label">PROJECT OBJECTIVES & CURRENT FRICTION *</label>
                 <textarea id="form-message" rows="4" required placeholder="Briefly describe your acquisition channel goals, current CPA challenges, or target launching dates..." class="w-full bg-slate-950/60 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400 transition-colors"></textarea>
               </div>
 
               <button type="submit" class="btn-cyan w-full justify-center py-4 text-sm uppercase tracking-wider">
                 <i data-lucide="message-square" class="w-4 h-4"></i>
-                <span>Submit & Trigger Direct WhatsApp Audit</span>
+                <span data-i18n="form_submit_btn">Submit & Trigger Direct WhatsApp Audit</span>
               </button>
             </form>
           </div>
@@ -1234,11 +1057,11 @@
 
       <!-- Footer Bottom Bar -->
       <div class="mt-20 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-slate-400 gap-4">
-        <div>
-          Copyright © 2026 <span class="text-white font-bold">Mohamed Kotkat</span>. All rights reserved.
+        <div data-i18n="footer_copy">
+          Copyright © 2026 Mohamed Kotkat. All rights reserved.
         </div>
         <div class="flex items-center gap-6">
-          <a href="#about" class="hover:text-cyan-400">Back to Top ↑</a>
+          <a href="#about" class="hover:text-cyan-400" data-i18n="back_to_top">Back to Top ↑</a>
         </div>
       </div>
 
@@ -1247,7 +1070,7 @@
 
 
   <!-- ==========================================================================
-     CASE STUDY MODALS
+     PROJECT BREAKDOWN MODALS
      ========================================================================== -->
   
   <!-- Modal 01: Coffelia -->
@@ -1369,11 +1192,69 @@
   </div>
 
 
+  <!-- Mobile-Optimized Lightweight Canvas Particle Engine -->
+  <script>
+    const canvas = document.getElementById('hero-particles-canvas');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+
+      function resizeCanvas() {
+        if (!canvas.parentElement) return;
+        canvas.width = canvas.parentElement.clientWidth;
+        canvas.height = canvas.parentElement.clientHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      class Particle {
+        constructor() { this.reset(); }
+        reset() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 2 + 0.5;
+          this.vx = (Math.random() - 0.5) * 0.4;
+          this.vy = -(Math.random() * 0.4 + 0.1); // Anti-gravity upward float
+          this.alpha = Math.random() * 0.5 + 0.1;
+          this.color = Math.random() > 0.4 ? '#00D2FF' : '#6366F1';
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.y < 0) this.y = canvas.height;
+          if (this.x < 0) this.x = canvas.width;
+          if (this.x > canvas.width) this.x = 0;
+        }
+        draw() {
+          ctx.fillStyle = this.color;
+          ctx.globalAlpha = this.alpha;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      // Reduce particle count on mobile screens for 60fps extreme battery efficiency
+      const particleCount = window.innerWidth < 768 ? 25 : 55;
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+
+      function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+          p.update();
+          p.draw();
+        });
+        requestAnimationFrame(animateParticles);
+      }
+      animateParticles();
+    }
+  </script>
+
   <!-- Script Includes -->
-  <script src="./js/particles.js"></script>
   <script src="./js/tilt.js"></script>
   <script src="./js/funnel.js"></script>
-  <script src="./js/calculator.js"></script>
   <script src="./js/app.js"></script>
 </body>
 </html>
